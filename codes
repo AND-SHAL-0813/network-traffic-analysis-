@@ -1,0 +1,9 @@
+#Capture Network Traffic (Packet Sniffing)
+Use scapy or pyshark to sniff packets:
+from scapy.all import sniff
+
+def capture_packets(interface="eth0", packet_count=100):
+    packets = sniff(iface=interface, count=packet_count)
+    packets.summary()
+
+sudo tcpdump -i any -w traffic.pcap
