@@ -1,0 +1,58 @@
+#Project Structure
+network_analyzer/
+├── capture.py
+├── analyze.py
+├── visualize.py
+├── main.py
+├── requirements.txt
+
+from scapy.all import sniff, wrpcap
+
+def capture_packets(interface="eth0", count=100, output="traffic.pcap"):
+    packets = sniff(iface=interface, count=count)
+    wrpcap(output, packets)
+    print(f"Captured {count} packets to {output}")
+
+
+
+#analyze.py – Analyze PCAP File
+import pyshark
+
+def analyze_pcap(file_path):
+    cap = pyshark.FileCapture(file_path)
+    summary = {}
+    for pkt in cap:
+        proto = pkt.highest_layer
+        summary[proto] = summary.get(proto, 0) + 1
+    cap.close()
+    return summary
+
+
+
+#visualize.py – Visualize Protocol Distribution
+import matplotlib.pyplot as plt
+
+def plot_protocols(summary):
+    labels = list(summary.keys())
+    sizes = list(summary.values())
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+    plt.title("Protocol Distribution")
+    plt.show()
+
+
+
+#main.py – Run the Tool
+from capture import capture_packets
+from analyze import analyze_pcap
+from visualize import plot_protocols
+
+if __name__ == "__main__":
+    capture_packets(interface="eth0", count=200)
+    summary = analyze_pcap("traffic.pcap")
+    print("Protocol Summary:", summary)
+    plot_protocols(summary)
+
+
+
+#requirements.txt
+scapy
