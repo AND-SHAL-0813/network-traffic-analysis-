@@ -15,11 +15,11 @@
 <!--te-->
 # About
 
-BruteShark is a Network Forensic Analysis Tool (NFAT) that performs deep processing and inspection of network traffic (mainly PCAP files, but it also capable of directly live capturing from a network interface). It includes: password extracting, building a network map, reconstruct TCP sessions, extract hashes of encrypted passwords and even convert them to a Hashcat format in order to perform an offline Brute Force attack.
+shalvis is a Network Forensic Analysis Tool (NFAT) that performs deep processing and inspection of network traffic (mainly PCAP files, but it also capable of directly live capturing from a network interface). It includes: password extracting, building a network map, reconstruct TCP sessions, extract hashes of encrypted passwords and even convert them to a Hashcat format in order to perform an offline Brute Force attack.
 
 The main goal of the project is to provide solution to security researchers and network administrators with the task of network traffic analysis while they try to identify weaknesses that can be used by a potential attacker to gain access to critical points on the network.
 
-Two BruteShark versions are available, A GUI based application (Windows) and a Command Line Interface tool (Windows and Linux).  
+Two shalvis versions are available, A GUI based application (Windows) and a Command Line Interface tool (Windows and Linux).  
 The various projects in the solution can also be used independently as infrastructure for analyzing network traffic on Linux or Windows machines. For further details see the Architecture section.
 
 The project was developed in my spare time to address two main passions of mine: software architecture and analyzing network data.
@@ -160,7 +160,7 @@ private void _initilyzeModulesList()
     
 }
 ```
-##### BruteSharkDesktop (PL)
+##### shalvisDesktop (PL)
 Desktop application for Windows based on WinForms.
 Uses a cross-cutting project by the meaning it referrers both the DAL and BLL layers.
 This is done by composing each of the layers, register to their events, when event is triggered, cast the event object to the next layer equivalent object, and send it to next layer.
@@ -201,13 +201,13 @@ public MainForm()
 }
 ```
 # Contributing
-First off, thanks for taking the time to contribute! BruteShark welcomes contributions from everyone.
+First off, thanks for taking the time to contribute! shalvis welcomes contributions from everyone.
 
 When contributing to this repository, please first discuss the change you wish to make via issue or
 an email before making a change.
 
 ## How Can You Contribute?
-- Implementing new features from [BruteShark Issues](https://github.com/odedshimon/BruteShark/issues), look for "good first issue" and "help wanted" labels.
+- Implementing new features from [shalvis Issues](https://github.com/odedshimon/BruteShark/issues), look for "good first issue" and "help wanted" labels.
 - Uploading example PCAP files, especially files, with interesting content.
 - Proposing new features by [Creating an Issue](https://github.com/odedshimon/BruteShark/issues).
 - Reporting a bug by [Creating an Issue](https://github.com/odedshimon/BruteShark/issues).
